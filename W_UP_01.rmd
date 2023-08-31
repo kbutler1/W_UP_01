@@ -40,17 +40,55 @@ $H_A$: The average number of pushups done by line players is statistically diffe
 ### Graphical Descriptive Results
 
 <!--Graphical results here. Make sure to show your code. Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too. Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+### Plot boxplots
+
+```{r}
+ggplot(mydata, aes(x = position, y = pushups)) +
+  geom_boxplot() +
+  labs(
+    title = "Pushup Difference by Position",
+    x = "Position",
+    y = "Pushups"
+  )
+```
+
+I'm looking at the columns in the chart above, the left are the line position, and on the right are skilled position  
+
+the right are the skilled box is much higher.
+
+the 25th percentile on the skilled player is higher than 75th percentile of the line player 
+
+this seems to indicate that skilled position can do more push-ups than line position 
+
 
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+```{r}
+favstats(pushups~ position,data=mydata)
+```
+
+A line player can do the average number push-ups, which is about one-third the amount of an average skilled player.
 
 ## Inferential Results
 
 <!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+```{r}
+t.test(pushups~ position,data=mydata)
+```
+p-value = 0.0000009421
 
-
+the p-value is for smaller that 0.05 indicated that there is a strong statistical significance.  
+this rejects the $H_O$ leaving only the $H_A$.
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+$H_0$ = there is no difference in push-ups based on position
+$H_A$ = there is a difference in push-ups based on position 
+
+with assistance from ChatGPT I was able to write some R code to create a box plot 
+
+Also, by using the numerical-chat tool I was able to perform a T test and A summary of the Data (favstats). 
+
+The box plot in conjunction with with the summary and T test Show what we can reject the $H_0$ leaving only the $H_A$.
