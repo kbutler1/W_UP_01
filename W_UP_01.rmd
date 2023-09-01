@@ -91,4 +91,4 @@ with assistance from ChatGPT I was able to write some R code to create a box plo
 
 Also, by using the numerical-chat tool I was able to perform a T test and A summary of the Data (favstats). 
 
-The box plot in conjunction with with the summary and T test Show what we can reject the $H_0$ leaving only the $H_A$.
+The box plot in conjunction with with the summary and T test Show what we can reject the $H_0$ leaving only the $H_A$. 
